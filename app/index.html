@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Bear Wrangling</title>
+</head>
+
+<body data-ng-app="BearStreamApp">
+
+	<h1>Bears, Bears, Bears Everywhere</h1>
+
+	<main data-ng-controller="BearsController" data-ng-init="getAll()">
+		<ul id="errorslist">
+			<li data-ng-repeat="error in errors">{{error}}</li>
+		</ul>
+
+		<form name="newBearForm" data-ng-submit="create(newBear)">
+			<h2>New Bear:</h2>
+			<label for="newBearName">Name:</label>
+			<input type="text" id="newBearName" required data-ng-model="newBear.name">
+
+			<label for="newBearFishPreference">Fish Preference:</label>
+			<input type="text" id="newBearFishPreference" data-ng-model="newBear.fishPreference" placeholder="salmons">
+
+			<label for="newBearFlavor">Flavor</label>
+			<input type="text" id"newBearFlavor" data-ng-model="newBear.flavor" placeholder="grizzly">
+
+			<button type="submit" data-ng-disabled="newBearForm.$invalid">Create New Bear</button>
+		</form>
+
+		<ul id="bearlist">
+			<li data-ng-repeat="bear in bears">
+				{{bear.name}}
+						<form name="bearForm{{bear._id}}" data-ng-submit="update(bear)">
+			<h2>Witness Protection for Bear: {{bear.name}}</h2>
+
+			<label for="bearName">Name:</label>
+			<input type="text" id="bearName" required data-ng-model="bear.name">
+
+			<label for="bearFishPreference{{bear._id}}">Fish Preference:</label>
+			<input type="text" id="bearFishPreference" data-ng-model="bear.fishPreference" placeholder="salmons">
+
+			<label for="bearFlavor{{bear._id}}">Flavor</label>
+			<input type="text" id"bearFlavor" data-ng-model="bear.flavor" placeholder="grizzly">
+
+			<button type="submit">Place bear in Bear Protection</button>
+			<button data-ng-click="bear.editing = false">This bear needs not protecting</button>
+		</form>
+		<button data-ng-if="!bear.editing" data-ng-click="bear.editing = true">This Bear has Seen too much</button>	
+				<button data-ng-if="!bear.editing" data-ng-click="remove(bear)">Murder This Bear!</button>
+			</li>
+		</ul>
+	</main>
+
+	<script src="/bundle.js"></script>
+	
+</body>
+</html>
