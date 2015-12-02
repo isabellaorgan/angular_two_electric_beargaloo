@@ -1,8 +1,7 @@
 module.exports = function(app) {
 	app.controller('BearsController', ['$scope', '$http', function($scope, $http) {
 		$scope.bears = [];
-		$scope.edit = {};
-		$scope.original = {};
+		$scope.errors = [];
 	
 		$scope.getAll = function() {
 			$http.get('/api/bears')
@@ -11,6 +10,15 @@ module.exports = function(app) {
 				}, function(err) {
 					console.log(err.data);
 				});
+		};
+
+		$scope.edit = function(bear) {
+			bear.editing = !bear.editing;
+			bear.currentName = bear.name;
+		};
+
+		$scope.cancel = function(bear) {
+			bear.name = bear.currentName;
 		};
 
 		$scope.create = function(bear) {
@@ -26,7 +34,6 @@ module.exports = function(app) {
 
 		$scope.update = function(bear) {
 			bear.editing = false;
-			$scope.orignal = angular.copy(bear);
 			$http.put('/api/bears/' + bear._id, bear)
 				.then(function(res) {
 					console.log('bear updated');
@@ -35,12 +42,6 @@ module.exports = function(app) {
 						console.log(err);
 					});
 		};
-
-		$scope.reset = function() {
-			$scope.bear = angular.copy($scope.original);
-		};
-
-		$scope.reset();
 
 		$scope.remove = function(bear) {
 			$scope.bears.splice($scope.bears.indexOf(bear), 1);

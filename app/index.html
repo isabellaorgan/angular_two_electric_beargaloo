@@ -44,9 +44,9 @@
 			<input type="text" id"bearFlavor{{bear._id}}" data-ng-model="bear.flavor" placeholder="grizzly">
 
 			<button type="submit">Place bear in Bear Protection</button>
-			<button data-ng-click="cancelEdit(bear)">This bear needs not protecting</button>
+			<button data-ng-click="cancel(bear)">This bear needs not protecting</button>
 		</form>
-		<button data-ng-click="bear.editing=true; editingModel(bear)">This Bear has Seen too much</button>	
+		<button data-ng-click="edit(bear)">This Bear has Seen too much</button>	
 				<button data-ng-if="!bear.editing" data-ng-click="remove(bear)">Murder This Bear!</button>
 			</li>
 		</ul>
