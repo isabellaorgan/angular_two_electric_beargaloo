@@ -46,7 +46,7 @@
 			<button type="submit">Place bear in Bear Protection</button>
 			<button data-ng-click="cancelEdit(bear)">This bear needs not protecting</button>
 		</form>
-		<button data-ng-click="bear.editing=true; showOriginal(bear)">This Bear has Seen too much</button>	
+		<button data-ng-click="bear.editing=true; editingModel(bear)">This Bear has Seen too much</button>	
 				<button data-ng-if="!bear.editing" data-ng-click="remove(bear)">Murder This Bear!</button>
 			</li>
 		</ul>
