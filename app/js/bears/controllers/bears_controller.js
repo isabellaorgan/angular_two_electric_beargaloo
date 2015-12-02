@@ -1,28 +1,8 @@
 module.exports = function(app) {
 	app.controller('BearsController', ['$scope', '$http', function($scope, $http) {
 		$scope.bears = [];
-		$scope.edit = {};
-		//$scope.original = {};
-		// $scope.errors = [];
-		// var defaults = {flavor: 'grizzly', fishPreference: 'Salmons'};
-		// $scope.newBear = Object.create(defaults);
-
-		$scope.showOriginal = function(bear) {
-			$scope.edit[bear._id] = angular.copy(bear);
-		};
-
-		$scope.cancelEdit = function(bear) {
-			bear.editing = false;
-			for(i = 0; i < $scope.bear.length; i++) {
-				if($scope.bear[i]._id === bear._id) {
-					angular.copy($scope.edit[bear._id], $scope.bear[i]);
-					delete $scope.edit[bear._id];
-					return;
-				}
-			}
-		};
-		
-
+		$scope.errors = [];
+	
 		$scope.getAll = function() {
 			$http.get('/api/bears')
 				.then(function(res) {
@@ -30,6 +10,15 @@ module.exports = function(app) {
 				}, function(err) {
 					console.log(err.data);
 				});
+		};
+
+		$scope.edit = function(bear) {
+			bear.editing = !bear.editing;
+			bear.currentName = bear.name;
+		};
+
+		$scope.cancel = function(bear) {
+			bear.name = bear.currentName;
 		};
 
 		$scope.create = function(bear) {
@@ -49,7 +38,7 @@ module.exports = function(app) {
 				.then(function(res) {
 					console.log('bear updated');
 					}, function(err) {
-						// $scope.errors.push('could not get bear: ' + bear.name + ' to bear trial');
+						$scope.errors.push('could not get bear: ' + bear.name + ' to bear trial');
 						console.log(err);
 					});
 		};
