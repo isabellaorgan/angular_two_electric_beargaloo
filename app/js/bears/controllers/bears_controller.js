@@ -1,8 +1,27 @@
 module.exports = function(app) {
 	app.controller('BearsController', ['$scope', '$http', function($scope, $http) {
 		$scope.bears = [];
-		$scope.error = [];
-		$scope.newBear = null;
+		$scope.edit = {};
+		//$scope.original = {};
+		// $scope.errors = [];
+		// var defaults = {flavor: 'grizzly', fishPreference: 'Salmons'};
+		// $scope.newBear = Object.create(defaults);
+
+		$scope.showOriginal = function(bear) {
+			$scope.edit[bear._id] = angular.copy(bear);
+		};
+
+		$scope.cancelEdit = function(bear) {
+			bear.editing = false;
+			for(i = 0; i < $scope.bear.length; i++) {
+				if($scope.bear[i]._id === bear._id) {
+					angular.copy($scope.edit[bear._id], $scope.bear[i]);
+					delete $scope.edit[bear._id];
+					return;
+				}
+			}
+		};
+		
 
 		$scope.getAll = function() {
 			$http.get('/api/bears')
@@ -28,23 +47,23 @@ module.exports = function(app) {
 			bear.editing = false;
 			$http.put('/api/bears/' + bear._id, bear)
 				.then(function(res) {
-					console.log('this bear has a new identity (bear placed in witness protection');
-				}, function(err) {
-					$scope.errors.push('could not get bear: ' + bear.name + ' to bear trial');
-					console.log(err.data);
-				});
+					console.log('bear updated');
+					}, function(err) {
+						// $scope.errors.push('could not get bear: ' + bear.name + ' to bear trial');
+						console.log(err);
+					});
 		};
 
 		$scope.remove = function(bear) {
 			$scope.bears.splice($scope.bears.indexOf(bear), 1);
 			$http.delete('/api/bears/' + bear._id)
-			.then(function(res) {
-				console.log('totes cool, bear murdered');
-			}, function(err) {
-				console.log(err.data);
-				$scope.errors.push('could not murder bear: ' + bear.name);
-				$scope.getAll();
-			});
+				.then(function(res) {
+					console.log('totes cool, bear murdered');
+				}, function(err) {
+					console.log(err.data);
+					$scope.errors.push('could not murder bear: ' + bear.name);
+					$scope.getAll();
+				});
 		};
 	}]);
 };
