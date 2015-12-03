@@ -10,14 +10,10 @@ gulp.task('static:dev', function() {
 });
 
 gulp.task('css:dev', function() {
-	return gulp.src([
-		'app/css/reset/css',
-		'app/css/base.css',
-		'app/css.layout.css',
-		'app/css.module.css'])
+	return gulp.src('app/css/**/*.css')
 	.pipe(concatCss('styles.min.css'))
 	.pipe(minifyCss())
-	.pipe(gulp.dest('build/'));
+	.pipe(gulp.dest('build/css/'));
 });
 
 gulp.task('css:watch', function () {
