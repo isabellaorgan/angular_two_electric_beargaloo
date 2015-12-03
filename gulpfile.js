@@ -1,6 +1,8 @@
 var gulp = require('gulp');
 var webpack = require('webpack-stream');
-var minify = require('gulp-minify-css');
+var minifyCss = require('gulp-minify-css');
+var concatCss = require('gulp-concat-css');
+var gulpWatch = require('gulp-watch');
 
 gulp.task('static:dev', function() {
   gulp.src('app/**/*.html')
@@ -9,16 +11,17 @@ gulp.task('static:dev', function() {
 
 gulp.task('css:dev', function() {
 	return gulp.src([
-		'app/css.base.css',
+		'app/css/reset/css',
+		'app/css/base.css',
 		'app/css.layout.css',
 		'app/css.module.css'])
-	.pipe(concatCss('styles.min.css'));
-	.pipe(minifyCss());
+	.pipe(concatCss('styles.min.css'))
+	.pipe(minifyCss())
 	.pipe(gulp.dest('build/'));
 });
 
 gulp.task('css:watch', function () {
-	gulp.watch('./app/css/**/*.css');
+  gulp.watch('./app/css/**/*.css', ['css:dev']);
 });
 
 gulp.task('webpack:dev', function() {
@@ -38,7 +41,7 @@ gulp.task('webpack:test', function() {
 			filename: 'test_bundle.js'
 		}
 	}))
-	.pipe(gulp.dest('test/client'));
+	.pipe(gulp.dest('test/client/'));
 });
 
 gulp.task('build:dev', ['webpack:dev', 'static:dev', 'css:dev']);
