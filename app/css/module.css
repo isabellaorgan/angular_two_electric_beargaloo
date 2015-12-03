@@ -1,0 +1,29 @@
+input {
+	font size: 120%;
+	color: 000;
+	background-color: 000;
+	border: 1px solid ff0012;
+	border-radius: 5px;
+	padding: 5px 5px 5px 5px;
+	background-repeat: no-repeat;;
+	background-position: 8px 9px;
+	display: block;
+	margin-bottom: 10px;
+}
+
+input: focus, input: hover {
+	background-color: #000;
+	border: 1px solid ff0012;
+}
+
+.errorslist {
+
+}
+
+.bearlist {
+
+}
+
+
+
+
