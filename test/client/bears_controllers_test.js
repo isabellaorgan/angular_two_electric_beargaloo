@@ -5,6 +5,7 @@ describe('bears controller', function() {
   var $httpBackend;
   var $ControllerConstructor;
   var $scope;
+  var bear;
 
   beforeEach(angular.mock.module('BearStreamApp'));
 
@@ -49,5 +50,35 @@ describe('bears controller', function() {
       expect($scope.bears[0].name).toBe('a different bear');
       expect($scope.newBear).toEqual($scope.defaults);
     });
+
+    it('should be able to update a bear', function() {
+      var bear = {_id: 1, editing: true};
+      $httpBackend.expectPUT('/api/bears/1').respond(200);
+      $scope.update(bear);
+      $httpBackend.flush();
+      expect(bear.editing).toBe(false);
+    });
+
+    it('should be able to delete a bear', function () {
+      var bear = {_id: 1, name: 'test bear'};
+      $scope.bears = [bear];
+      $httpBackend.expectDELETE('/api/bears/1').respond(200);
+      $scope.remove(bear);
+      $httpBackend.flush();
+      expect($scope.bears.length).toBe(0);
+    });
   });
 });
+
+
+
+
+
+
+
+
+
+
+
+
+
