@@ -3,6 +3,8 @@ var webpack = require('webpack-stream');
 var minifyCss = require('gulp-minify-css');
 var concatCss = require('gulp-concat-css');
 var gulpWatch = require('gulp-watch');
+var sass = require('gulp-sass');
+var maps = require('gulp-sourcemaps');
 
 gulp.task('static:dev', function() {
   gulp.src('app/**/*.html')
@@ -10,10 +12,12 @@ gulp.task('static:dev', function() {
 });
 
 gulp.task('css:dev', function() {
-	return gulp.src('app/css/**/*.css')
-	.pipe(concatCss('styles.min.css'))
+	return gulp.src('./app/sass/**/*.scss')
+	.pipe(maps.init())
+	.pipe(sass().on('error', sass.logError))
 	.pipe(minifyCss())
-	.pipe(gulp.dest('build/css/'));
+	.pipe(maps.write('/'))
+	.pipe(gulp.dest('build/'));
 });
 
 gulp.task('css:watch', function () {
