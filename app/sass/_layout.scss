@@ -1,25 +1,28 @@
+$color-scheme1: #6D8EAD; /*light blue*/
+$color-scheme2: #190807; /*dark brown*/
+$color-scheme3: #CFCDB4; /*vanilla*/
+$color-scheme4: #362416; /*brown*/
+$color-scheme5: #1F3447; /*dark blue*/
+
 @mixin text-format($alignment, $size, $text-color){
 	text-align: $alignment;
 	font-size: $size;
 	color: $text-color;
 }
 
-@mixin container-format($background-color, $width){
-	background-color: $background-color;
-	width: $width;
-}
-
 body {
-	@include text-format(left, $color-scheme1, $color-scheme2);
-	@include text-format(90%, 18px);
+	@include text-format(left, 18px, $color-scheme2);
+  width: 90%;
   margin: 0 auto;
+  background-color: $color-scheme1;
   font-family: 'Roboto', sans-serif;
   font-weight: 100;
 }
 
 h1 {
-	@include text-format(center, $color-scheme3, $color-scheme5);
-	@include text-format(62%, 24px);
+	@include text-format(center, 24px, $color-scheme5);
+	background-color: $color-scheme3;
+	width: 62%;
 	font-family: 'Kaushan Script', cursive;
   letter-spacing: 5px;
 }
