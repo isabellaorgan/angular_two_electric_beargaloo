@@ -11,10 +11,17 @@
 
 	<h1><a href="https://github.com/isabellaorgan/angular_two_electric_beargaloo">Bears, Bears, Bears Everywhere</a></h1>
 
+	<div data-dummy-directive data-greeting="Hello World"></div>
+
 	<main data-ng-controller="BearsController" data-ng-init="getAll()">
 		<ul id="errorslist">
 			<li data-ng-repeat="error in errors">{{error}}</li>
 		</ul>
+
+		<div data-bear-transclude-directive data-message-one="another message">
+		Here is some text.
+		<p>{{messageOne}}</p>
+	</div>
 
 		<form name="newBearForm" class="newBearForm" data-ng-submit="create(newBear)">
 			<h2>New Bear:</h2>
@@ -29,8 +36,9 @@
 			<button type="submit" class="button" data-ng-disabled="newBearForm.$invalid">Create New Bear</button>
 		</form>
 
-		<ul id="bearlist" style="list-style-type:none">
+		<ul id="bearlist">
 			<li data-ng-repeat="bear in bears">
+				<div data-ng-bear-directive data-bear="bear"></div>
 				{{bear.name}}
 				<form name="bearForm{{bear._id}}" data-ng-submit="update(bear)" data-ng-if="bear.editing">
 					<h2>Witness Protection for Bear: {{bear.name}}</h2>

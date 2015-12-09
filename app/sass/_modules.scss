@@ -33,8 +33,9 @@ ul {
 }
 
 li {
-	@include text-format(left, 2px 2px 2px 2px);
+	@include text-format(left, 2px 20px 2px 2px);
 	@include container-format($color-scheme3, 60%, 0 0 2px 20px);
+	list-style-type: none;
 	font-weight: 700;
 }
 
@@ -65,8 +66,8 @@ li {
 	border-radius:6px;
 	border:1px solid #b2b8ad;
 	display:inline-block;
+	text-align:right;
 	cursor:pointer;
-	text-align: right;
 	color:#757d6f;
 	font-family:Arial;
 	font-size:15px;
@@ -75,7 +76,7 @@ li {
 	text-decoration:none;
 	text-shadow:0 1px 0 #ced9bf;
 	margin-left: 50px;
-	margin-right: 2px;
+	margin-right: 20px;
 	margin-bottom: 10px;
 	margin-top: 10px;
 }
