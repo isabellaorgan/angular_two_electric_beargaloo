@@ -1,15 +1,9 @@
-$color-scheme1: #6D8EAD; /*light blue*/
-$color-scheme2: #190807; /*dark brown*/
-$color-scheme3: #CFCDB4; /*vanilla*/
-$color-scheme4: #362416; /*brown*/
-$color-scheme5: #1F3447; /*dark blue*/
-
-@mixin text-format($alignment, $padding){
+@mixin text-format($alignment, $padding: 2px 2px 2px 2px){
 	text-align: $alignment;
 	padding: $padding;
 }
 
-@mixin container-format($background-color, $width, $padding) {
+@mixin container-format($background-color, $padding: 0 0 2px 20px, $width: 60%) {
 	background-color: $background-color;
 	width: $width;
 	padding: $padding;
@@ -29,18 +23,18 @@ input {
 }
 
 ul {
-	@include text-format(left, 2px 2px 2px 2px);
+	@include text-format(left);
 }
 
 li {
-	@include text-format(left, 2px 20px 2px 2px);
-	@include container-format($color-scheme3, 60%, 0 0 2px 20px);
+	@include text-format(left);
+	@include container-format($color-scheme3);
 	list-style-type: none;
 	font-weight: 700;
 }
 
 .newBearForm {
-	@include container-format($color-scheme5, 60%, 0 0 20px 20px)
+	@include container-format($color-scheme5)
 	color: $color-scheme1;
 }
 
@@ -66,9 +60,19 @@ li {
 	border-radius:6px;
 	border:1px solid #b2b8ad;
 	display:inline-block;
-	text-align:right;
 	cursor:pointer;
+	text-align: right;
 	color:#757d6f;
+	font-family:Arial;
+	font-size:15px;
+	font-weight:bold;
+	padding:6px 24px;
+	text-decoration:none;
+	text-shadow:0 1px 0 #ced9bf;
+	margin-left: 50px;
+	margin-right: 2px;
+	margin-bottom: 10px;
+	margin-top: 10px;
 	font-family:Arial;
 	font-size:15px;
 	font-weight:bold;
