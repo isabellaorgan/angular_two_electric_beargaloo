@@ -1,9 +1,9 @@
-@mixin text-format($alignment, $padding){
+@mixin text-format($alignment, $padding: 2px 2px 2px 2px){
 	text-align: $alignment;
 	padding: $padding;
 }
 
-@mixin container-format($background-color, $width, $padding) {
+@mixin container-format($background-color, $padding: 0 0 2px 20px, $width: 60%) {
 	background-color: $background-color;
 	width: $width;
 	padding: $padding;
@@ -23,18 +23,18 @@ input {
 }
 
 ul {
-	@include text-format(left, 2px 2px 2px 2px);
+	@include text-format(left);
 }
 
 li {
-	@include text-format(left, 2px 2px 2px 2px);
-	@include container-format($color-scheme3, 60%, 0 0 2px 20px);
+	@include text-format(left);
+	@include container-format($color-scheme3);
 	list-style-type: none;
 	font-weight: 700;
 }
 
 .newBearForm {
-	@include container-format($color-scheme5, 60%, 0 0 20px 20px)
+	@include container-format($color-scheme5)
 	color: $color-scheme1;
 }
 
