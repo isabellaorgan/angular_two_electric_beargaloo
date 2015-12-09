@@ -20,7 +20,10 @@ body {
 }
 
 h1 {
-	@include text-format(left, 24px, $color-scheme5);
+	@include text-format(center, 24px, $color-scheme5);
+	background-color: $color-scheme3;
+	width: 62%;
+	font-family: 'Kaushan Script', cursive;
   letter-spacing: 5px;
 }
 

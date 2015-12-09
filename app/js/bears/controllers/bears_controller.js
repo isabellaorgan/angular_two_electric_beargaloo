@@ -5,6 +5,7 @@ module.exports = function(app) {
     $scope.errors = [];
     $scope.defaults = {flavor: 'grizzly', fishPreference: 'Salmons'};
     $scope.newBear = angular.copy($scope.defaults);
+    $scope.messageOne = "Hello from inside the controller!";
     var bearsResource = cfResource('bears');
 
     $scope.getAll = function() {
