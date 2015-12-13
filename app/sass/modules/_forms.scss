@@ -1,0 +1,9 @@
+.newBearForm {
+	@include container-format($color-scheme5)
+	color: $color-scheme1;
+}
+
+.newBearForm button {
+	text-align: left;
+	margin-left: 0;
+}

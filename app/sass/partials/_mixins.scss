@@ -1,0 +1,11 @@
+@mixin text-format($color, $alignment: center){
+	color: $color;
+	text-align: $alignment;
+}
+
+@mixin container-format($background-color, $padding: 0 0 2px 20px, $width: 60%) {
+	background-color: $background-color;
+	width: $width;
+	padding: $padding;
+}
+
