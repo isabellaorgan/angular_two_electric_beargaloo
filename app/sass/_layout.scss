@@ -21,7 +21,7 @@ body {
 
 h1 {
 	@include text-format($color-scheme5, center, 24px);
-	background-color: $color-scheme3;
+	// background-color: $color-scheme3;
 	width: 62%;
 	font-family: 'Kaushan Script', cursive;
   letter-spacing: 5px;

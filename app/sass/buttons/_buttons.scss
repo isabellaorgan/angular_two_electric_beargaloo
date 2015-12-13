@@ -1,0 +1,10 @@
+@import "buttons/index";
+
+.btn-success {
+	@include btn-maker($success-color);
+	$transition: $standard-transistion;
+}
+
+.btn-alert {
+	@include btn-maker($alert-color);
+}

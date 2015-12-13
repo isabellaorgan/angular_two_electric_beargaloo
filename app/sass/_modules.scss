@@ -1,3 +1,9 @@
+$color-scheme1: #6D8EAD; /*light blue*/
+$color-scheme2: #190807; /*dark brown*/
+$color-scheme3: #CFCDB4; /*vanilla*/
+$color-scheme4: #362416; /*brown*/
+$color-scheme5: #1F3447; /*dark blue*/
+
 @mixin text-format($alignment, $padding: 2px 2px 2px 2px){
 	text-align: $alignment;
 	padding: $padding;
@@ -23,14 +29,19 @@ input {
 }
 
 ul {
+	@include container-format($color-scheme3);
 	@include text-format(left);
 }
 
 li {
 	@include text-format(left);
-	@include container-format($color-scheme3);
 	list-style-type: none;
 	font-weight: 700;
+}
+
+.errorslist {
+	@include container-format($color-scheme1);
+
 }
 
 .newBearForm {
