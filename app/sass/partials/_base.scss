@@ -1,6 +1,6 @@
-@import 'partials/mixins';
-@import 'partials/colors';
-@import 'partials/typography';
+// @import 'partials/mixins';
+// @import 'partials/colors';
+// @import 'partials/typography';
 
 body {
   @include text-format($color-scheme2);
