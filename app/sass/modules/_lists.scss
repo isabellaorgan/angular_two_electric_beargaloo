@@ -1,15 +1,19 @@
 ul {
 	@include container-format($color-scheme3);
 	@include text-format(left);
+	padding: 10px, 10px, 10px, 20px;
+	margin-left: 10px;
 }
 
 li {
 	@include text-format(left);
 	list-style-type: none;
 	font-weight: 700;
+	margin-left: 10px;
 }
 
 .errorslist {
 	@include container-format($color-scheme1);
-
+	padding: 10px, 10px, 10px, 20px;
+	margin-left: 10px;
 }

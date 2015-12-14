@@ -12,7 +12,8 @@
 		<label for="bearFlavor">Flavor:</label>
 		<input type="text" id="bearFlavor" data-ng-model="bear.flavor" placeholder="Grizzly">
 
-		<button type="submit">{{buttonText}}</button>
+		<button class="button" data-ng-disabled="{{formName}}.$invalid" type="submit">{{buttonText}}</button>
+		<button class="button data-ng-click="cancel({bear:bear})">Cancel Edit</button>
 	</form>
 	<ng-transclude></ng-transclude>
 </div>
