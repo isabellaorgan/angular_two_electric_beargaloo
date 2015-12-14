@@ -1,0 +1,31 @@
+<section data-ng-controller="BearsController" data-ng-init="getAll()">
+		<ul id="errorslist">
+			<li data-ng-repeat="error in errors">{{error}}</li>
+		</ul>
+
+	<div data-bear-form-directive
+		data-button-text="Create New Bear"
+		data-form-name="newBearForm"
+		data-heading-text="Create a New Bear"
+		data-bear="newBear"
+		data-save="create(bear)"
+		>
+	</div>
+
+		<div data-list-directive data-title="bears">
+			<li data-ng-repeat="bear in bears">
+				<div class="beardata" data-bear-directive data-bear="bear"></div>
+				<div data-bear-form-directive
+				data-ng-if="bear.editing"
+				data-button-text="Save Bear"
+				data-form-name="edit{{bear._id}}"
+				data-bear="bear"
+				data-heading-text="Editing {{bear.name}}"
+				data-save="update(bear)">
+				<button type="button" class="button" data-ng-click="cancel(bear)">Cancel</button>
+				</div>
+				<button class="button" data-ng-click="edit(bear)">This Bear has Seen too much</button>	
+				<button class="button" data-ng-if="!bear.editing" data-ng-click="remove(bear)">Murder This Bear!</button>
+			</li>
+		</ul>
+	</section>

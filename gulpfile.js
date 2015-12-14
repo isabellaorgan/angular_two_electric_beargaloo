@@ -16,7 +16,7 @@ gulp.task('sass:dev', function() {
   .pipe(sass().on('error', sass.logError))
   .pipe(minifyCss())
   .pipe(maps.write('./'))
-  .pipe(gulp.dest('build/css/'));
+  .pipe(gulp.dest('build/css'));
 });
 
 gulp.task('sass:watch', function () {

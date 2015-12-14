@@ -1,0 +1,21 @@
+
+<div>
+	<form name="{{formName}}" class="newBearForm" data-ng-submit="save({bear:bear})">
+		<h2>{{headingText}}</h2>
+
+		<label for="bearName" class="bflabel">Name:</label>
+		<input type="text" id="bearName" required data-ng-model="bear.name">
+
+		<label for="bearFishPreference" class="bflabel">Fish Preference:</label>
+		<input type="text" id="bearFishPreference" data-ng-model="bear.fishPreference" placeholder="Salmons">
+
+		<label for="bearFlavor" class="bflabel">Flavor:</label>
+		<input type="text" id="bearFlavor" data-ng-model="bear.flavor" placeholder="Grizzly">
+
+		<button class="button" data-ng-disabled="{{formName}}.$invalid" type="submit">{{buttonText}}</button>
+		
+	<ng-transclude></ng-transclude>
+</div>
+
+
+

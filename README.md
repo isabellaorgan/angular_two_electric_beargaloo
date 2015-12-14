@@ -20,4 +20,7 @@ Your application should be Responsive
 Use a flexible layout
 Use media queries where necessary 
 
+12/14/15
+Additionally, organize your project in a way that makes sense. Use the file structure that mentioned in the reading as a guideline for building your own. Most importantly I would like to see modular code. Abstract your code into a separation of concerns between logic and presentation code.
+
 

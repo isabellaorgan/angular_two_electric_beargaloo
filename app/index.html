@@ -3,7 +3,6 @@
 <head>
 	<meta charset="UTF-8">
 	<title>Bear Wrangling</title>
-	<link href="https://fonts.googleapis.com/css?family=Roboto:400,100|Kaushan+Script" rel="stylesheet" type="text/css">
 	<link rel="stylesheet" href="css/application.css">
 </head>
 
@@ -11,55 +10,7 @@
 
 	<h1><a href="https://github.com/isabellaorgan/angular_two_electric_beargaloo">Bears, Bears, Bears Everywhere</a></h1>
 
-	<div data-dummy-directive data-greeting="Hello World"></div>
-
-	<main data-ng-controller="BearsController" data-ng-init="getAll()">
-		<ul id="errorslist">
-			<li data-ng-repeat="error in errors">{{error}}</li>
-		</ul>
-
-		<div data-bear-transclude-directive data-message-one="another message">
-		Here is some text.
-		<p>{{messageOne}}</p>
-	</div>
-
-		<form name="newBearForm" class="newBearForm" data-ng-submit="create(newBear)">
-			<h2>New Bear:</h2>
-			<label for="newBearName">Name:</label>
-			<input type="text" id="newBearName" required data-ng-model="newBear.name">
-
-			<label for="newBearFishPreference">Fish Preference:</label>
-			<input type="text" id="newBearFishPreference" data-ng-model="newBear.fishPreference" placeholder="salmons">
-
-			<label for="newBearFlavor">Flavor</label>
-			<input type="text" id"newBearFlavor" data-ng-model="newBear.flavor" placeholder="grizzly">
-			<button type="submit" class="button" data-ng-disabled="newBearForm.$invalid">Create New Bear</button>
-		</form>
-
-		<ul id="bearlist">
-			<li data-ng-repeat="bear in bears">
-				<div data-ng-bear-directive data-bear="bear"></div>
-				{{bear.name}}
-				<form name="bearForm{{bear._id}}" data-ng-submit="update(bear)" data-ng-if="bear.editing">
-					<h2>Witness Protection for Bear: {{bear.name}}</h2>
-
-			<label for="bearName{{bear._id}}">Name:               </label>
-			<input type="text" id="bearName{{bear._id" required data-ng-model="bear.name">
-
-			<label for="bearFishPreference{{bear._id}}">Fish Preference:</label>
-			<input type="text" id="bearFishPreference{{bear._id}}" data-ng-model="bear.fishPreference" placeholder="salmons">
-
-			<label for="bearFlavor{{bear._id}}">Flavor</label>
-			<input type="text" id"bearFlavor{{bear._id}}" data-ng-model="bear.flavor" placeholder="grizzly">
-
-			<button type="submit" class="button">Place bear in Bear Protection</button>
-			<button class="button"data-ng-click="cancel(bear)">This bear needs not protecting</button>
-		</form>
-		<button class="button" data-ng-click="edit(bear)">This Bear has Seen too much</button>	
-				<button class="button" data-ng-if="!bear.editing" data-ng-click="remove(bear)">Murder This Bear!</button>
-			</li>
-		</ul>
-	</main>
+	<main data-ng-view></main>
 
 	<script src="/bundle.js"></script>
 	

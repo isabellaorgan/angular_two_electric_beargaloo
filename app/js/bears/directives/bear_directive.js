@@ -3,7 +3,7 @@ module.exports = function(app) {
 		return {
 			restrict: 'AC',
 			replace: true,
-			templateUrl: '/templates/bear_directives_template.html',
+			templateUrl: '/templates/bear_directive_template.html',
 			scope: {
 				bear: '=',
 			}
