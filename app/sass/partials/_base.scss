@@ -1,11 +1,11 @@
-// @import 'partials/mixins';
-// @import 'partials/colors';
-// @import 'partials/typography';
+@import 'partials/mixins';
+@import 'partials/colors';
+@import 'partials/typography';
 
 body {
   @include text-format($color-scheme2);
   width: 90%;
-  margin: 10 auto;
+  margin: 10px;
   background-color: $color-scheme1;
   font-family: $primary-sans-serif;
   font-weight: 100;
@@ -20,5 +20,9 @@ h1 {
 }
 
 h2 {
-  @include text-format($color-scheme5);
+  @include text-format($color-scheme3);
+  font-family: $h2;
+  padding-top: 10px;
+  margin-top: 10px;
+  margin-left: 30px;
 }

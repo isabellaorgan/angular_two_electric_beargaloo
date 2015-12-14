@@ -1,11 +1,16 @@
-// @import 'partials/mixins';
-// @import 'modules/inputs';
-// @import 'modules/buttons';
+@import 'partials/mixins';
+@import 'modules/inputs';
+@import 'modules/buttons';
 
 .newBearForm {
-	@include container-format($color-scheme3)
-	@include text-format($color-scheme5, text-align: none);
+	@include container-format($color-scheme5)
+	@include text-format($color-scheme5);
 	color: $color-scheme1;
-	padding: 30px, 10px, 30px, 10px;
+	padding: 30px, 10px, 30px, 20px;
+	margin-left: 30px;
+	margin-bottom: 20px;
+}
+
+.bflabel {
 	margin-left: 30px;
 }
