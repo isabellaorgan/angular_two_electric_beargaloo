@@ -1,7 +1,3 @@
-@import 'partials/mixins';
-@import 'modules/inputs';
-@import 'modules/buttons';
-
 .newBearForm {
 	@include container-format($color-scheme5)
 	@include text-format($color-scheme5);
