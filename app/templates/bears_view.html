@@ -2,10 +2,6 @@
 		<ul id="errorslist">
 			<li data-ng-repeat="error in errors">{{error}}</li>
 		</ul>
-<!-- 
-	<div data-bear-transclude-directive data-message-one="another message">
-		Here is some text.
-	</div> -->
 
 	<div data-bear-form-directive
 		data-button-text="Create New Bear"
@@ -15,11 +11,6 @@
 		data-save="create(bear)"
 		>
 	</div>
-
-<!-- 		<ul id="bearlist">
-			<li data-ng-repeat="bear in bears">
-				<div data-ng-bear-directive data-bear="bear"></div>
-				{{bear.name}} -->
 
 		<div data-list-directive data-title="bears">
 			<li data-ng-repeat="bear in bears">
