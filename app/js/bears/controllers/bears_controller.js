@@ -1,12 +1,15 @@
 var angular = window.angular;
 module.exports = function(app) {
-  app.controller('BearsController', ['$scope', '$http', 'cfResource', function($scope, $http, cfResource) {
+  app.controller('BearsController', ['$scope', '$http', 'cfResource', '$location', function($scope, $http, cfResource, $location) {
     $scope.bears = [];
     $scope.errors = [];
     $scope.defaults = {flavor: 'grizzly', fishPreference: 'Salmons'};
     $scope.newBear = angular.copy($scope.defaults);
     $scope.messageOne = "Hello from inside the controller!";
     var bearsResource = cfResource('bears');
+
+    if (!$scope.token)
+      $location.path('/signup');
 
     $scope.getAll = function() {
       bearsResource.getAll(function(err, data) {
