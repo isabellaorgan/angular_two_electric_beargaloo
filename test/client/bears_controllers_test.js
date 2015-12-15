@@ -69,16 +69,3 @@ describe('bears controller', function() {
     });
   });
 });
-
-
-
-
-
-
-
-
-
-
-
-
-
