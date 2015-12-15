@@ -3,6 +3,7 @@ module.exports = function(app) {
 		return {
 			restrict: 'AC',
 			templateUrl: '/templates/bear_transclude_directive',
+			replace: true,
 			transclude: true,
 			scope: {
 				messageOne: '@'
