@@ -10,12 +10,12 @@ require('./directives/directives')(bearStreamApp);
 require('./bears/bears')(bearStreamApp);
 
 bearStreamApp.config(['$routeProvider', function($route) {
-	$route
-		.when('/bears', {
-			templateUrl: '/templates/bears_view.html',
-			controller: 'BearsController'
-		})
-		.otherwise({
-			redirectTo: '/bears'
-		});
+  $route
+    .when('/bears', {
+      templateUrl: '/templates/bears_view.html',
+      controller: 'BearsController'
+    })
+    .otherwise({
+      redirectTo: '/bears'
+    });
 }]);
