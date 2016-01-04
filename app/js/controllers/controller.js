@@ -1,3 +1,3 @@
 module.exports = function(app) {
-	require('./dummy_controller')(app);
+  require('./dummy_controller')(app);
 };

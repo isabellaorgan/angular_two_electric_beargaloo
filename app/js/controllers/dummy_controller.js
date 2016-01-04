@@ -1,5 +1,5 @@
 module.exports = function(app) {
-	app.controller('DummyController', ['$scope', function($scope) {
-		
-	}]);
+  app.controller('DummyController', ['$scope', function($scope) {
+    
+  }]);
 };
